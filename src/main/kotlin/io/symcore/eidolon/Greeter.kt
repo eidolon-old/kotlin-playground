@@ -19,12 +19,17 @@ package io.symcore.eidolon
 public class Greeter {
     private val name: String?
 
-    
+
     constructor() : this(null)
     constructor(name: String?) {
         this.name = name
     }
 
+    /**
+     * Get greeting message
+     *
+     * @return String
+     */
     public fun getMessage(): String {
         return "Hello " + (this.name ?: "world")
     }
