@@ -12,7 +12,7 @@
 package io.symcore.eidolon
 
 fun main(args: Array<String>) {
-    val greeter = Greeter()
+    val greeter = Greeter("Elliot", "Sup, ")
 
-    println(greeter.getMessage())
+    println(greeter.message)
 }

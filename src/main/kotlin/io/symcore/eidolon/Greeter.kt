@@ -17,20 +17,21 @@ package io.symcore.eidolon
  * @author Elliot Wright <elliot@elliotwright.co>
  */
 public class Greeter {
+    private var greeting: String
+        set(value) {
+            $greeting = if (value.isNotBlank()) value else "Hello "
+        }
+
     private val name: String?
+
+    public val message: String
+        get() = greeting + (name ?: "world")
 
 
     constructor() : this(null)
-    constructor(name: String?) {
+    constructor(name: String?) : this(name, "Hello ")
+    constructor(name: String?, greeting: String) {
         this.name = name
-    }
-
-    /**
-     * Get greeting message
-     *
-     * @return String
-     */
-    public fun getMessage(): String {
-        return "Hello " + (this.name ?: "world")
+        this.greeting = greeting
     }
 }
