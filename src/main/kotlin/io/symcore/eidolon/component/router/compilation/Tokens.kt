@@ -9,21 +9,12 @@
  * file that was distributed with this source code.
  */
 
-package io.symcore.eidolon
+package io.symcore.eidolon.component.router.compilation
 
-import io.symcore.collections.mutable.Queue
+interface Token
 
-fun main(args: Array<String>) {
-    val queue = Queue<Int>()
-
-    val list = arrayListOf(1, 2, 3)
-    val doubled = list.map { it * 2 }
-
-    queue.enqueue(1)
-    queue.enqueue(2)
-    queue.enqueue(3)
-
-    val doubles = queue.map { it * 2 }
-
-    println("Hello world!")
-}
+data class T_HYPHEN(val lexeme: String) : Token
+data class T_PATH_SEPERATOR(val lexeme: String) : Token
+data class T_STRING(val lexeme: String) : Token
+data class T_UNDERSCORE(val lexeme: String) : Token
+data class T_VARIABLE(val lexeme: String) : Token

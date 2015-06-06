@@ -9,21 +9,11 @@
  * file that was distributed with this source code.
  */
 
-package io.symcore.eidolon
+package io.symcore.collections.exception
 
-import io.symcore.collections.mutable.Queue
-
-fun main(args: Array<String>) {
-    val queue = Queue<Int>()
-
-    val list = arrayListOf(1, 2, 3)
-    val doubled = list.map { it * 2 }
-
-    queue.enqueue(1)
-    queue.enqueue(2)
-    queue.enqueue(3)
-
-    val doubles = queue.map { it * 2 }
-
-    println("Hello world!")
-}
+/**
+ * UnderflowException
+ *
+ * @author Elliot Wright <elliot@elliotwright.co>
+ */
+public class UnderflowException(message : String = "Collection is empty.") : Exception(message)
