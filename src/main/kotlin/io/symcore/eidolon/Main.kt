@@ -29,6 +29,16 @@ fun main(args: Array<String>) {
     val even = triples.filter { it % 2 == 0 }
     val sum = even.reduce { x, y -> x + y }
 
+    for (item in queue) {
+        println(item.toString())
+        println("Has: " + queue.length.toString())
+    }
+
+    for (item in queue.consumingIterator()) {
+        println(item.toString())
+        println("Has: " + queue.length.toString())
+    }
+
     println(sum.toString())
     println(even)
 }

@@ -12,8 +12,6 @@
 package io.symcore.collections.mutable
 
 import io.symcore.collections.exception.UnderflowException
-import io.symcore.collections.mutable.Collection
-import io.symcore.collections.mutable.QueueIterator
 
 /**
  * Queue, first-in first-out (FIFO) collection
@@ -23,10 +21,13 @@ import io.symcore.collections.mutable.QueueIterator
 public class Queue<T> : Collection<T> {
     private data class QueueItem<T>(val value: T, var next: QueueItem<T>? = null)
 
-    private var head : QueueItem<T>? = null
-    private var tail : QueueItem<T>? = null
+    private var head: QueueItem<T>? = null
+    private var tail: QueueItem<T>? = null
 
-    val isEmpty : Boolean
+    var length: Int = 0
+        private set
+
+    val isEmpty: Boolean
         get() = head == null
 
 
@@ -43,6 +44,8 @@ public class Queue<T> : Collection<T> {
             tail?.next = item
             tail = item
         }
+
+        length++
     }
 
     /**
@@ -60,6 +63,8 @@ public class Queue<T> : Collection<T> {
         if (head == null) {
             tail = null
         }
+
+        length--
 
         return result
     }
@@ -103,7 +108,7 @@ public class Queue<T> : Collection<T> {
      * to current accumulator value and each element.
      */
     public fun reduce(operation: (T, T) -> T): T {
-        if (this.isEmpty) {
+        if (isEmpty) {
             throw UnsupportedOperationException("Empty queue cannot be reduced.")
         }
 
@@ -116,14 +121,6 @@ public class Queue<T> : Collection<T> {
         }
 
         return accumulator
-    }
-
-    /**
-     * Get the iterator for this object, note: this iterator uses dequeue to iterate, meaning that
-     * items are removed from the collection while iterating.
-     */
-    public fun iterator(): QueueIterator<T> {
-        return QueueIterator(this)
     }
 
     /**
@@ -143,5 +140,31 @@ public class Queue<T> : Collection<T> {
         string += ")"
 
         return string
+    }
+
+    public fun iterator(): Iterator<T> = object : Iterator<T> {
+        private var current = head
+
+        override public fun next(): T {
+            val next = current!!.value
+
+            current = current!!.next
+
+            return next
+        }
+
+        override public fun hasNext(): Boolean {
+            return current != null
+        }
+    }
+
+    public fun consumingIterator(): Iterator<T> = object : Iterator<T> {
+        override fun next(): T {
+            return dequeue()
+        }
+
+        override fun hasNext(): Boolean {
+            return head != null
+        }
     }
 }
