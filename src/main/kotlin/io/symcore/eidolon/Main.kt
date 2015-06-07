@@ -16,14 +16,19 @@ import io.symcore.collections.mutable.Queue
 fun main(args: Array<String>) {
     val queue = Queue<Int>()
 
-    val list = arrayListOf(1, 2, 3)
-    val doubled = list.map { it * 2 }
-
     queue.enqueue(1)
     queue.enqueue(2)
     queue.enqueue(3)
+    queue.enqueue(4)
+    queue.enqueue(5)
+    queue.enqueue(6)
+    queue.enqueue(7)
+    queue.enqueue(8)
 
-    val doubles = queue.map { it * 2 }
+    val triples = queue.map { it * 3 }
+    val even = triples.filter { it % 2 == 0 }
+    val sum = even.reduce { x, y -> x + y }
 
-    println("Hello world!")
+    println(sum.toString())
+    println(even)
 }
