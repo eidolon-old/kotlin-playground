@@ -21,9 +21,11 @@ import javax.servlet.http.HttpServletResponse
  *
  * @author Elliot Wright <elliot@elliotwright.co>
  */
-WebServlet(name = "Hello", value = "/")
-public class ServletTest : HttpServlet() {
-    override fun doGet(req: HttpServletRequest?, resp: HttpServletResponse?) {
-        resp?.getWriter()?.write("Hello, World!")
+public class ServletTest {
+    WebServlet(name = "Hello", value = "/")
+    public class ServletImpl : HttpServlet() {
+        override fun doGet(req: HttpServletRequest?, resp: HttpServletResponse?) {
+            resp?.getWriter()?.write("Hello, World!")
+        }
     }
 }

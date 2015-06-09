@@ -11,15 +11,6 @@
 
 package io.symcore.eidolon
 
-import org.restlet.Component
-import org.restlet.Server
-import org.restlet.data.Protocol
-
 fun main(args: Array<String>) {
-    val component = Component()
-
-    component.getServers().add(Protocol.HTTP, 8080)
-    component.getDefaultHost().attach("/", javaClass<HttpTest>())
-
-    component.start()
+    println("Hello world!")
 }

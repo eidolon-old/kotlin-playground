@@ -32,7 +32,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:0.12.213" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:0.12.213" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.restlet.jse:org.restlet:2.3.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.sun.mail:javax.mail:1.5.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: javax.activation:activation:1.1" level="project" />
