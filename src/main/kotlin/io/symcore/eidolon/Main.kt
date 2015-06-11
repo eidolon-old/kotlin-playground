@@ -11,6 +11,10 @@
 
 package io.symcore.eidolon
 
+import io.symcore.http.HttpServer
+
 fun main(args: Array<String>) {
-    println("Hello world!")
+    val server = HttpServer()
+
+    server.start(8080)
 }

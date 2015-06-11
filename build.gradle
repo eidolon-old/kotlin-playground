@@ -10,12 +10,16 @@ buildscript {
 
 apply plugin: "kotlin"
 apply plugin: "war"
+apply plugin: "application"
+
+mainClassName = "io.symcore.eidolon.EidolonPackage"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile group: "javax", name: "javaee-api", version: "7.0"
+    compile "io.netty:netty-all:4.0.28.Final"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile group: "javax", name: "javaee-api", version: "7.0"
 }

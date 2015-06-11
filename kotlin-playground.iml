@@ -35,5 +35,6 @@
     <orderEntry type="library" exported="" name="Gradle: javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.sun.mail:javax.mail:1.5.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: io.netty:netty-all:4.0.28.Final" level="project" />
   </component>
 </module>
